@@ -11,7 +11,7 @@ Read IOSched's [README](https://github.com/google/iosched) for a general descrip
 - No map tab. Replaced by the Agenda that was moved from the Schedule.
 
 
-# Copyright
+The source code in this repository reflects the app as of I/O 2017.
 
     Copyright 2018 Google Inc. All rights reserved.
 
