@@ -78,8 +78,6 @@ android {
 dependencies {
     api project(":model")
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    testImplementation project(':test-shared')
-    testImplementation project(':androidTest-shared')
 
     // Architecture Components
     implementation "androidx.lifecycle:lifecycle-extensions:$rootProject.lifecycleVersion"

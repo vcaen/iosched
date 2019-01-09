@@ -18,7 +18,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
-apply plugin: 'io.fabric'
+//apply plugin: 'io.fabric'
 
 android {
     compileSdkVersion rootProject.compileSdkVersion
@@ -31,18 +31,14 @@ android {
 
         vectorDrawables.useSupportLibrary true
 
-        manifestPlaceholders = [crashlyticsEnabled: true]
-
     }
     buildTypes {
         release {
             minifyEnabled true
             shrinkResources true
-            manifestPlaceholders = [crashlyticsEnabled: true]
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         debug {
-            manifestPlaceholders = [crashlyticsEnabled: false]
         }
         staging {
             initWith debug
@@ -74,7 +70,7 @@ android {
     signingConfigs {
         // We need to sign debug builds with a debug key to make firebase auth happy
         debug {
-            storeFile file("../debug.keystore")
+            //storeFile file("../debug.keystore")
             keyAlias "androiddebugkey"
             keyPassword "android"
             storePassword "android"
@@ -96,8 +92,6 @@ android {
 
 dependencies {
     implementation project(':shared')
-    testImplementation project(':test-shared')
-    testImplementation project(':androidTest-shared')
     implementation fileTree(include: ['*.jar'], dir: 'libs')
 
     // UI
@@ -120,11 +114,10 @@ dependencies {
 
     // Glide
     implementation "com.github.bumptech.glide:glide:$rootProject.glideVersion"
-    annotationProcessor "com.github.bumptech.glide:compiler:$rootProject.glideVersion"
+    kapt "com.github.bumptech.glide:compiler:$rootProject.glideVersion"
 
     // Fabric and Firebase
     implementation "com.firebaseui:firebase-ui-auth:$rootProject.firebaseUiVersion"
-    implementation "com.crashlytics.sdk.android:crashlytics:$crashlyticsVersion"
 
     // Date and time API for Java.
     api "com.jakewharton.threetenabp:threetenabp:$rootProject.threetenabpVersion"
@@ -149,5 +142,3 @@ dependencies {
     // Solve conflicts with gson. DataBinding is using an old version.
     implementation "com.google.code.gson:gson:$gsonVersion"
 }
-
-apply plugin: 'com.google.gms.google-services'

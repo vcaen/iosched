@@ -107,7 +107,7 @@
         <item name="android:textColor">?android:textColorPrimary</item>
     </style>
 
-    <style name="TextAppearance.ADSSched.Tab" parent="@style/TextAppearance.MaterialComponents.Tab">
+    <style name="TextAppearance.ADSSched.Tab" parent="@style/TextAppearance.Design.Tab">
         <item name="android:fontFamily">@font/google_sans</item>
         <item name="android:textColor">@color/tab_text</item>
         <item name="android:textStyle">bold</item>
